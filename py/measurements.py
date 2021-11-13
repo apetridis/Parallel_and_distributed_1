@@ -1,0 +1,125 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+## OpenMP
+values = np.array([1, 5, 10, 20, 50, 80, 100])
+belgium = np.array([0.055009, 0.025171, 0.021411, 0.01895, 0.019848, 0.022426, 0.026408])
+belgium = belgium/belgium.max()
+youtube = np.array([15.353559, 13.38586, 11.767842, 7.942081, 9.234711, 9.633843, 11.301792])
+youtube = youtube/youtube.max()
+myciel = np.array([6.13843, 3.555702, 3.403987, 3.441695, 2.911106, 3.434072, 3.35031])
+myciel = myciel/myciel.max()
+dblp2010 = np.array([0.18152, 0.057454, 0.069777, 0.050939, 0.082682, 0.061024, 0.066836])
+dblp2010 = dblp2010/dblp2010.max()
+naca0015 = np.array([0.591139, 0.198348, 0.175687, 0.17044, 0.168467, 0.18227, 0.216857])
+naca0015 = naca0015/naca0015.max()
+
+plt.figure(1)
+plt.title("OpenMP")
+plt.plot(values, belgium, '-o')
+plt.plot(values, youtube, '-o')
+plt.plot(values, myciel, '-o')
+plt.plot(values, dblp2010, '-o')
+plt.plot(values, naca0015, '-o')
+plt.legend(["belgium", "youtube", "myciel", "dblp2010", "NACA0015"])
+plt.xlabel("Number of threads")
+plt.ylabel("Seconds (normalized)")
+plt.show()
+
+## Pthreads
+belgium2 = np.array([0.05646, 0.023693, 0.019586, 0.017046, 0.020453, 0.018928, 0.019231])
+belgium2 = belgium2/belgium2.max()
+youtube2 = np.array([14.560806, 13.502294, 12.781772, 11.043583, 9.790047, 9.662404, 9.621262])
+youtube2 = youtube2/youtube2.max()
+myciel2= np.array([6.5428, 2.664424, 3.127985, 2.007912, 2.854417, 2.275415, 2.940185])
+myciel2 = myciel2/myciel2.max()
+dblp20102 = np.array([0.18981, 0.064849, 0.067343, 0.060477, 0.062858, 0.081119, 0.059706])
+dblp20102 = dblp20102/dblp20102.max()
+naca00152 = np.array([0.621263, 0.206139, 0.174676, 0.167453, 0.220489, 0.170099, 0.165745])
+naca00152 = naca00152/naca00152.max()
+
+plt.figure(2)
+plt.title("Pthreads")
+plt.plot(values, belgium2, '-o')
+plt.plot(values, youtube2, '-o')
+plt.plot(values, myciel2, '-o')
+plt.plot(values, dblp20102, '-o')
+plt.plot(values, naca00152, '-o')
+plt.legend(["belgium", "youtube", "myciel", "dblp2010", "NACA0015"])
+plt.xlabel("Number of threads")
+plt.ylabel("Seconds (normalized)")
+plt.show()
+
+plt.figure(3)
+plt.title("Belgium")
+plt.plot(values, belgium, '-o')
+plt.plot(values, belgium2, '-o')
+plt.legend(["OpenMP", "Pthreads"])
+plt.xlabel("Number of threads")
+plt.ylabel("Seconds (normalized)")
+plt.show()
+
+plt.figure(4)
+plt.title("Youtube")
+plt.plot(values, youtube, '-o')
+plt.plot(values, youtube2, '-o')
+plt.legend(["OpenMP", "Pthreads"])
+plt.xlabel("Number of threads")
+plt.ylabel("Seconds (normalized)")
+plt.show()
+
+plt.figure(5)
+plt.title("Myciel")
+plt.plot(values, myciel, '-o')
+plt.plot(values, myciel2, '-o')
+plt.legend(["OpenMP", "Pthreads"])
+plt.xlabel("Number of threads")
+plt.ylabel("Seconds (normalized)")
+plt.show()
+
+plt.figure(6)
+plt.title("Dblp2010")
+plt.plot(values, dblp2010, '-o')
+plt.plot(values, dblp20102, '-o')
+plt.legend(["OpenMP", "Pthreads"])
+plt.xlabel("Number of threads")
+plt.ylabel("Seconds (normalized)")
+plt.show()
+
+plt.figure(7)
+plt.title("NACA0015")
+plt.plot(values, naca0015, '-o')
+plt.plot(values, naca00152, '-o')
+plt.legend(["OpenMP", "Pthreads"])
+plt.xlabel("Number of threads")
+plt.ylabel("Seconds (normalized)")
+plt.show()
+
+
+
+## open_mp_belgium = [-0.005278, 0.034534, 0.030911, 0.030746, 0.026204, 0.022152, 0.001782, -0.013815, -0.033222, -0.102355]
+## open_mp_belgium = np.array(open_mp_belgium)
+## open_mp_belgium = open_mp_belgium/open_mp_belgium.max()
+## open_mp_youtube = [-1.027395, 3.287309, 7.284914, 9.725096, 9.143906, 9.799982, 10.844033, 11.396443, 10.160172, 7.540082]
+## open_mp_youtube = np.array(open_mp_youtube)
+## open_mp_youtube = open_mp_youtube/open_mp_youtube.max()
+## open_mp_myciel = [-2.238159, 4.441538, 3.556365, 3.803126, 3.855907, 3.974249, 3.937462, 4.004188, 4.570003, 3.475793]
+## open_mp_myciel = np.array(open_mp_myciel)
+## open_mp_myciel = open_mp_myciel/open_mp_myciel.max()
+## open_mp_dblp = [0.00359, 0.122927, 0.124548, 0.120004, 0.113469, 0.116073, 0.100881, 0.08232, 0.045906, -0.020383]
+## open_mp_dblp = np.array(open_mp_dblp)
+## open_mp_dblp = open_mp_dblp/open_mp_dblp.max()
+## open_mp_NACA = [-0.002218, 0.420443, 0.413598, 0.113675, 0.41094, 0.39381, 0.396293, 0.375013, 0.37069, 0.308857]
+## open_mp_NACA = np.array(open_mp_NACA)
+## open_mp_NACA = open_mp_NACA/open_mp_NACA.max()
+
+## values = [1, 10, 50, 100, 200, 500, 1000, 1500, 2000, 4000]
+## values = np.array(values )
+
+## plt.plot(values, open_mp_belgium, '-o')
+## plt.plot(values, open_mp_youtube, '-o')
+## plt.plot(values, open_mp_myciel, '-o')
+## plt.plot(values, open_mp_dblp, '-o')
+## plt.plot(values, open_mp_NACA, '-o')
+## plt.legend(["belgium", "youtube", "myciel", "dblp", "NACA"])
+## plt.show()
