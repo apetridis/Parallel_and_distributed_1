@@ -19,7 +19,7 @@ $(OBJECTS): $(OBJDIR)/%.o : $(SRCDIR)/%.c
 	@echo "Compiled "$<" successfully!"
 
 run: 
-	$ ./$(TARGET) NACA0015.mtx
+	$ ./$(TARGET) belgium_osm.mtx
 
 .PHONY: clean
 clean:
