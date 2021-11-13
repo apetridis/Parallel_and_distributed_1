@@ -19,7 +19,7 @@
 
 #include <unistd.h>
 
-#define NUMOFTHREADS 80
+#define NUMOFTHREADS 50
 
 int *C;
 pthread_mutex_t mutex;
