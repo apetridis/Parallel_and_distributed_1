@@ -15,7 +15,7 @@ Go to Project files ``` $ cd Parallel_and_distributed_1/  ```
 Github has 25KB limit file, so matrix files inside this project are:
 belgium_osm.mtx, dblp-2010.mtx, mycielskian13.mtx
 
-for every file there is a Makefile which helps compilation and execution of the project.
+for every implementation folder there is a Makefile which helps compilation and execution of the current implementation.
 
 In each Makefile we can change dataset using ``` $ nano Makefile ```
 
